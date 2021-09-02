@@ -50,7 +50,7 @@ CREATE TABLE xws_contact.location_type (
 CREATE TABLE xws_contact.subscription (
   id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
   contact_id uuid NOT NULL REFERENCES xws_contact.contact (id),
-  area_code varchar(40) NOT NULL REFERENCES xws_area.area (code),
+  area_code varchar(40),
   channel_name varchar(100) NOT NULL REFERENCES xws_contact.channel (name),
   wnlif bool NOT NULL DEFAULT FALSE,
   created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,

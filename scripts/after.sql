@@ -6,13 +6,6 @@
 DROP SCHEMA IF EXISTS xws_rest CASCADE;
 CREATE SCHEMA IF NOT EXISTS xws_rest;
 
-CREATE VIEW xws_rest.area AS
-  SELECT code, region, name, description
-  FROM xws_area.area
-  -- See https://github.com/PostgREST/postgrest-docs/issues/366 for reason for setting OFFSET
-  -- TL/DR - it stops update methods (POST/PUT/DELETE) being generated in swagger
-  OFFSET NULL;
-
 CREATE VIEW xws_rest.contact AS
   SELECT id, value, active, contact_kind_name AS "contactKindName", contact_type_name AS "contactTypeName", hazard_name AS "hazardName"
   FROM xws_contact.contact;
@@ -25,7 +18,6 @@ DROP role IF EXISTS web_anon;
 CREATE role web_anon NOLOGIN;
 
 GRANT usage ON SCHEMA xws_rest TO web_anon;
-GRANT SELECT ON xws_rest.area TO web_anon;
 GRANT SELECT, UPDATE, INSERT, DELETE ON xws_rest.contact TO web_anon;
 GRANT SELECT, UPDATE, INSERT, DELETE ON xws_rest.subscription TO web_anon;
 
