@@ -1,0 +1,31 @@
+{
+  "name": "flood-xws-contact-db",
+  "version": "0.0.1",
+  "description": "Database and migrations scripts for the XWS Contact Subsystem",
+  "scripts": {
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEFRA/flood-xws-contact-db.git"
+  },
+  "keywords": [
+    "xws",
+    "alert",
+    "database",
+    "knex"
+  ],
+  "author": "DEFRA",
+  "license": "OGL-UK-3.0",
+  "bugs": {
+    "url": "https://github.com/DEFRA/flood-xws-contact-db/issues"
+  },
+  "homepage": "https://github.com/DEFRA/flood-xws-contact-db#readme",
+  "dependencies": {
+    "knex": "^1.0.1",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
+  }
+}
