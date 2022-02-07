@@ -55,7 +55,7 @@ Then, from the root of this project, execute the following commands.
 `./populatedb`
 
 
-### One liner
+### One line
 `npx knex migrate:down && npx knex migrate:up && npx knex seed:run && cd bin && ./populatedb && cd ..`
 
 ### Other useful commands
@@ -90,7 +90,17 @@ https://docs.cloud.service.gov.uk/deploying_services/postgresql/#set-up-a-postgr
 E.g.
 
 `$ cf marketplace -e postgres`
-`$ cf create-service postgres tiny-unencrypted-12 xws-contact-db-sandbox`
+`$ cf create-service postgres tiny-unencrypted-12 xws-contact-db -c '{"enable_extensions": ["postgis"]}'`
+
+#### Initialise the DB
+
+From https://docs.cloud.service.gov.uk/deploying_services/postgresql/#non-paas-to-paas
+
+`$ pg_dump --host localhost --file xws_contact.sql xws_contact`
+
+`$ cf conduit xws-contact-db -- psql < xws_contact.sql`
+
+`$ \dt *.*`
 
 ### Resources
 
@@ -100,12 +110,6 @@ E.g.
 
 [Knex cheatsheet](https://devhints.io/knex)
 
-
-## Getting started
-
-***Creating Target Area insert SQL from shape files***
-
-After cloning the repo or when the zip files in `area/flood-areas` containing the Flood Alert or Warning Areas are updated then the SQL files which insert the target areas need to be regenerated. The script `scripts/generate-area-data.sh` will need to be re-run from the repo root directory. The generated SQL files are too large to commit to Github and so are ignored by git.
 
 The shape zip files come from:
 

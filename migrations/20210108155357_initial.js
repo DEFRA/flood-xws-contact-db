@@ -88,7 +88,7 @@ exports.up = knex => {
           t.specificType('centroid', 'geometry').nullable()
           t.specificType('bounding_box', 'geometry').nullable()
           addTimestamps(knex, t)
-    
+
           // Constraints
           t.index('ref')
         })
