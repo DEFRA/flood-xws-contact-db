@@ -13,8 +13,6 @@ Database and migrations scripts for the XWS Contact schema
 
 Pre-requisites:
 1. [Postgres](https://www.postgresql.org/) v12 with plugins PostGIS and uuid-ossp
-2. [ogr2ogr](https://gdal.org/programs/ogr2ogr.html) GDAL 3.0.4
-
 
 ### Mac Users
 
@@ -48,15 +46,10 @@ Then, from the root of this project, execute the following commands.
 
 `npx knex seed:run`
 
-3. Import the Alert and Warning Target Areas.
-
-`cd bin`
-
-`./populatedb`
 
 
 ### One line
-`npx knex migrate:down && npx knex migrate:up && npx knex seed:run && cd bin && ./populatedb && cd ..`
+`npx knex migrate:down && npx knex migrate:up && npx knex seed:run`
 
 ### Other useful commands
 
@@ -109,9 +102,3 @@ From https://docs.cloud.service.gov.uk/deploying_services/postgresql/#non-paas-t
 [Knex migrations cli](https://knexjs.org/#Migrations)
 
 [Knex cheatsheet](https://devhints.io/knex)
-
-
-The shape zip files come from:
-
-* https://data.gov.uk/dataset/0d901c4a-6e1a-4f9a-9408-73e0c1f49dd3/flood-warning-areas
-* https://data.gov.uk/dataset/7749e0a6-08fb-4ad8-8232-4e41da74a248/flood-alert-areas
