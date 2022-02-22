@@ -1,7 +1,7 @@
 {
   "name": "flood-xws-contact-db",
   "version": "0.0.1",
-  "description": "Database and migrations scripts for the XWS Contact Subsystem",
+  "description": "Database and migrations scripts for the XWS Contact schema",
   "scripts": {
     "lint": "standard"
   },

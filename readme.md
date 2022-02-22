@@ -1,6 +1,6 @@
 # flood-xws-contact-db
 
-Database and migrations scripts for the XWS Contact Subsystem
+Database and migrations scripts for the XWS Contact schema
 
 ## Environment variables
 
