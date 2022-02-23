@@ -3,7 +3,7 @@ const {
 } = require('../constants')
 
 exports.seed = async function (knex) {
-  await knex(`${CONTACT_SCHEMA_NAME}.contact_type`).insert([
+  await knex(`${CONTACT_SCHEMA_NAME}.type`).insert([
     { name: 'public' },
     { name: 'partner' },
     { name: 'staff' },

@@ -16,7 +16,7 @@ exports.up = knex => {
     `)
     .then(() => {
       return knex.schema.withSchema(CONTACT_SCHEMA_NAME)
-        .createTable('contact_type', t => {
+        .createTable('type', t => {
           // Columns
           t.string('name').primary()
           addTimestamps(knex, t)
@@ -38,7 +38,7 @@ exports.up = knex => {
           t.enu('receive_messages', ['all', 'warnings-only']).nullable()
           t.enu('state', ['active', 'removed']).notNullable()
           t.enu('hazard', ['flood']).notNullable()
-          t.string('type').references('name').inTable(`${CONTACT_SCHEMA_NAME}.contact_type`).notNullable()
+          t.string('type_name').references('name').inTable(`${CONTACT_SCHEMA_NAME}.type`).notNullable()
           addTimestamps(knex, t)
         })
         .createTable('location', t => {
