@@ -93,7 +93,15 @@ From https://docs.cloud.service.gov.uk/deploying_services/postgresql/#non-paas-t
 
 `$ cf conduit xws-contact-db -- psql < xws_contact.sql`
 
-`$ \dt *.*`
+`$ cf conduit xws-contact-db -- psql`
+
+`$ \dt xws_contact.*`
+
+#### Reset DB
+
+`$ cf conduit xws-contact-db -- psql`
+
+`$ DROP SCHEMA xws_contact CASCADE;`
 
 ### Resources
 
